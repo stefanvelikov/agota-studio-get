@@ -1,28 +1,35 @@
 RewriteEngine On
 RewriteBase /
 
-# Redirect requests without .html to corresponding .html files
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}.html -f
-RewriteRule ^([^/]+)/?$ $1.html [L]
+ErrorDocument 404 /404
+Redirect 301 /contact https://www.agota.studio/book-a-call
+Redirect 301 /pricing https://www.agota.studio/book-a-call
+Redirect 301 /with/kaufland https://www.agota.studio/book-a-call
+Redirect 301 /zeplin-to-webflow https://www.agota.studio/migration/zeplin-to-webflow
+Redirect 301 /sketch-to-webflow https://www.agota.studio/migration/sketch-to-webflow
+Redirect 301 /adobe-xd-to-webflow https://www.agota.studio/migration/adobe-xd-to-webflow
+Redirect 301 /resources/upvio-webflow-redevelopment https://www.agota.studio/case-study/upvio-webflow-redevelopment
+Redirect 301 /resources/webflow-seo-how-to-optimize-your-webflow-site-for-search-engines https://agota.studio/blog/webflow-seo-optimization
 
-# Explicitly serve work.html when accessing /work/
+
+# Serve /work/index.html when /work is accessed
 RewriteCond %{REQUEST_URI} ^/work/?$ [NC]
-RewriteRule ^work/?$ work.html [L]
+RewriteCond %{DOCUMENT_ROOT}/work/index.html -f
+RewriteRule ^work/?$ /work/index.html [L]
 
-
-# Remove trailing slashes for non-directory URLs
+# Remove trailing slash for non-directory URLs
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.+)/$ /$1 [R=301,L]
 
-# Remove .html extension within folders
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
+# If .html exists, serve it without showing .html
 RewriteCond %{REQUEST_FILENAME}.html -f
-RewriteRule ^([^/]+)/([^/]+)/?$ $1/$2.html [L]
+RewriteRule ^(.*)$ $1.html [L]
 
-# If the request is not for an existing file or directory,
-# rewrite it to index.php (or other handler if needed)
+# Redirect .html URLs to clean URLs
+RewriteCond %{THE_REQUEST} \s/(.*)\.html [NC]
+RewriteRule ^(.*)\.html$ /$1 [R=301,L]
+
+# Catch-all for dynamic requests
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php [QSA,L]
