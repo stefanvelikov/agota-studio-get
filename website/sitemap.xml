@@ -4,7 +4,7 @@
     <loc>https://agota.studio/style-guide</loc>
   </url>
   <url>
-    <loc>https://agota.studio/work</loc>
+    <loc>https://agota.studio/work/</loc>
   </url>
   <url>
     <loc>https://agota.studio/resources</loc>
@@ -16,16 +16,13 @@
     <loc>https://agota.studio/book-a-call</loc>
   </url>
   <url>
-    <loc>https://agota.studio/blog</loc>
+    <loc>https://agota.studio/blog/</loc>
   </url>
   <url>
-    <loc>https://agota.studio/migration</loc>
+    <loc>https://agota.studio/migration/</loc>
   </url>
   <url>
-    <loc>https://agota.studio/case-study</loc>
-  </url>
-  <url>
-    <loc>https://agota.studio/</loc>
+    <loc>https://agota.studio/case-study/</loc>
   </url>
   <url>
     <loc>https://agota.studio/blog/webflow-vs-wordpress</loc>

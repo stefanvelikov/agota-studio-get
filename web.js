@@ -43,7 +43,7 @@ async function isDirectory(filePath) {
 // Core Functions
 async function fetchSitemap() {
   try {
-    await clearFolder(outputFolder, ['.htaccess', sitemapFileName]);
+    await clearFolder(outputFolder, ['.htaccess', 'robots.txt', sitemapFileName]);
     const response = await axios.get(sitemapUrl);
 
     const parser = new xml2js.Parser();
@@ -149,14 +149,36 @@ async function fetchResourceLinksAndUpdateSitemap(pagePath = '/resources', creat
   }
 }
 
+
 async function fixSitemapDomains() {
   try {
     const sitemapFilePath = path.join(outputFolder, sitemapFileName);
     const sitemapData = await fs.readFile(sitemapFilePath, 'utf-8');
 
     const sitemapObj = await new xml2js.Parser().parseStringPromise(sitemapData);
+
+    // Define arrays for inclusion and exclusion
+    const pathsToEnsureSlash = ['/work', '/migration', '/case-study', '/blog'];
+    const pathsToExclude = ['/with/kaufland','/#solutions'];
+
+    sitemapObj.urlset.url = sitemapObj.urlset.url.filter(urlObj => {
+      // Extract the path from the URL
+      const urlPath = new URL(urlObj.loc[0]).pathname;
+
+      // Exclude URLs that match any path in the exclusion array exactly
+      const shouldExclude = pathsToExclude.includes(urlPath);
+      return !shouldExclude;
+    });
+
     sitemapObj.urlset.url.forEach(urlObj => {
+      // Replace domain as per existing logic
       urlObj.loc[0] = urlObj.loc[0].replace(processingDomain, sitemapRealDomain);
+
+      // Ensure URLs in the inclusion list have a trailing slash
+      const urlPath = new URL(urlObj.loc[0]).pathname;
+      if (pathsToEnsureSlash.includes(urlPath) && !urlObj.loc[0].endsWith('/')) {
+        urlObj.loc[0] += '/';
+      }
     });
 
     const updatedSitemapXml = new xml2js.Builder().buildObject(sitemapObj);
@@ -167,6 +189,8 @@ async function fixSitemapDomains() {
     console.error('Error fixing sitemap domains:', error.message);
   }
 }
+
+
 
 async function moveAndRenameResourcesFile(outputFolder, fileName, folderName) {
   const sourceFile = path.join(outputFolder, fileName);
