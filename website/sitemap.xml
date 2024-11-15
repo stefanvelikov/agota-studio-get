@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://agota.studio</loc>
-  </url>
-  <url>
     <loc>https://agota.studio/style-guide</loc>
   </url>
   <url>
@@ -13,54 +10,51 @@
     <loc>https://agota.studio/resources</loc>
   </url>
   <url>
-    <loc>https://agota.studio/project/upvio</loc>
-  </url>
-  <url>
-    <loc>https://agota.studio/contact</loc>
-  </url>
-  <url>
-    <loc>https://agota.studio/figma-to-webflow</loc>
-  </url>
-  <url>
-    <loc>https://agota.studio/adobe-xd-to-webflow</loc>
-  </url>
-  <url>
-    <loc>https://agota.studio/sketch-to-webflow</loc>
-  </url>
-  <url>
-    <loc>https://agota.studio/invision-to-webflow</loc>
-  </url>
-  <url>
-    <loc>https://agota.studio/affinity-designer-to-webflow</loc>
-  </url>
-  <url>
-    <loc>https://agota.studio/adobe-photoshop-to-webflow</loc>
-  </url>
-  <url>
-    <loc>https://agota.studio/adobe-illustrator-to-webflow</loc>
-  </url>
-  <url>
-    <loc>https://agota.studio/moqups-to-webflow</loc>
-  </url>
-  <url>
-    <loc>https://agota.studio/zeplin-to-webflow</loc>
-  </url>
-  <url>
-    <loc>https://agota.studio/pricing</loc>
-  </url>
-  <url>
     <loc>https://agota.studio/with/kaufland</loc>
   </url>
   <url>
-    <loc>https://agota.studio/resources/webflow-vs-wordpress-which-ones-right-for-your-business</loc>
+    <loc>https://agota.studio</loc>
   </url>
   <url>
-    <loc>https://agota.studio/resources/webflow-seo-how-to-optimize-your-webflow-site-for-search-engines</loc>
+    <loc>https://agota.studio/book-a-call</loc>
   </url>
   <url>
-    <loc>https://agota.studio/resources/why-web-design-is-crucial-for-your-business</loc>
+    <loc>https://agota.studio/blog</loc>
   </url>
   <url>
-    <loc>https://agota.studio/resources/upvio-webflow-redevelopment</loc>
+    <loc>https://agota.studio/migration</loc>
+  </url>
+  <url>
+    <loc>https://agota.studio/case-study</loc>
+  </url>
+  <url>
+    <loc>https://agota.studio/</loc>
+  </url>
+  <url>
+    <loc>https://agota.studio/#solutions</loc>
+  </url>
+  <url>
+    <loc>https://agota.studio/blog/webflow-vs-wordpress</loc>
+  </url>
+  <url>
+    <loc>https://agota.studio/blog/webflow-seo-optimization</loc>
+  </url>
+  <url>
+    <loc>https://agota.studio/blog/web-design-for-your-business</loc>
+  </url>
+  <url>
+    <loc>https://agota.studio/migration/wordpress-to-webflow</loc>
+  </url>
+  <url>
+    <loc>https://agota.studio/migration/adobe-xd-to-webflow</loc>
+  </url>
+  <url>
+    <loc>https://agota.studio/migration/sketch-to-webflow</loc>
+  </url>
+  <url>
+    <loc>https://agota.studio/migration/zeplin-to-webflow</loc>
+  </url>
+  <url>
+    <loc>https://agota.studio/case-study/upvio-webflow-redevelopment</loc>
   </url>
 </urlset>
