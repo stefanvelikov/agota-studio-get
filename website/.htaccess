@@ -13,6 +13,7 @@ Redirect 301 /sketch-to-webflow https://www.agota.studio/migration/sketch-to-web
 Redirect 301 /adobe-xd-to-webflow https://www.agota.studio/migration/adobe-xd-to-webflow
 Redirect 301 /resources/upvio-webflow-redevelopment https://www.agota.studio/case-study/upvio-webflow-redevelopment
 Redirect 301 /resources/webflow-seo-how-to-optimize-your-webflow-site-for-search-engines https://agota.studio/blog/webflow-seo-optimization
+Redirect 301 /resources/webflow-vs-wordpress-which-ones-right-for-your-business https://agota.studio/blog/webflow-vs-wordpress
 
 
 # Serve /work/index.html when /work is accessed
