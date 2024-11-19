@@ -6,7 +6,6 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 ErrorDocument 404 /404
 Redirect 301 /contact https://www.agota.studio/book-a-call
-Redirect 301 /case-study https://www.agota.studio/case-study/
 Redirect 301 /pricing https://www.agota.studio/book-a-call
 Redirect 301 /with/kaufland https://www.agota.studio/book-a-call
 Redirect 301 /zeplin-to-webflow https://www.agota.studio/migration/zeplin-to-webflow
