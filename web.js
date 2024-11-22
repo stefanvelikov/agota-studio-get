@@ -158,8 +158,8 @@ async function fixSitemapDomains() {
     const sitemapObj = await new xml2js.Parser().parseStringPromise(sitemapData);
 
     // Define arrays for inclusion and exclusion
-    const pathsToEnsureSlash = ['/work', '/migration', '/case-study', '/blog'];
-    const pathsToExclude = ['/with/kaufland','/#solutions'];
+    const pathsToEnsureSlash = ['/migration', '/case-study', '/blog'];
+    const pathsToExclude = ['/with/kaufland','/#solutions', '/design'];
 
     sitemapObj.urlset.url = sitemapObj.urlset.url.filter(urlObj => {
       // Extract the path from the URL
