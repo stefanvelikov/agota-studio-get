@@ -159,7 +159,7 @@ async function fixSitemapDomains() {
 
     // Define arrays for inclusion and exclusion
     const pathsToEnsureSlash = ['/migration', '/case-study', '/blog'];
-    const pathsToExclude = ['/with/kaufland','/#solutions', '/design'];
+    const pathsToExclude = ['/with/kaufland','/#solutions','/solutions/webflow-apps#web-apps','/solutions','/solutions/webflow-apps'];
 
     sitemapObj.urlset.url = sitemapObj.urlset.url.filter(urlObj => {
       // Extract the path from the URL
@@ -206,17 +206,54 @@ async function moveAndRenameResourcesFile(outputFolder, fileName, folderName) {
   }
 }
 
+async function removeExactUrlsFromSitemap(urlsToRemove) {
+  try {
+    const sitemapFilePath = path.join(outputFolder, sitemapFileName);
+    const sitemapData = await fs.readFile(sitemapFilePath, 'utf-8');
+
+    const sitemapObj = await new xml2js.Parser().parseStringPromise(sitemapData);
+
+    // Normalize URLs to ensure exact matching
+    const normalizedUrlsToRemove = urlsToRemove.map(url => new URL(url).toString());
+
+    // Filter out URLs that match exactly in the normalized list
+    sitemapObj.urlset.url = sitemapObj.urlset.url.filter(urlObj => {
+      const loc = new URL(urlObj.loc[0]).toString(); // Normalize each URL in the sitemap
+      return !normalizedUrlsToRemove.includes(loc);
+    });
+
+    // Convert the updated object back to XML
+    const updatedSitemapXml = new xml2js.Builder().buildObject(sitemapObj);
+    await fs.writeFile(sitemapFilePath, updatedSitemapXml);
+
+    console.log(`Exact URLs removed and updated sitemap saved to ${sitemapFilePath}`);
+  } catch (error) {
+    console.error('Error removing exact URLs from sitemap:', error.message);
+  }
+}
+
+
+const urlsToRemove = [
+  'https://agota.studio/',
+  'https://agota.studio/#solutions',
+  'https://agota.studio/solutions',
+  'https://agota.studio/solutions/webflow-apps',
+  'https://agota.studio/solutions/webflow-apps#web-apps',
+];
+
 // Main Process
 async function processSitemapAndResources() {
   await fetchSitemap();
   await fetchResourceLinksAndUpdateSitemap('/blog', ['/blog']);
   await fetchResourceLinksAndUpdateSitemap('/migration', ['/migration']);
   await fetchResourceLinksAndUpdateSitemap('/case-study', ['/case-study']);
+  await fetchResourceLinksAndUpdateSitemap('/solutions', ['/solutions']);
   moveAndRenameResourcesFile(outputFolder, 'blog.html', 'blog');
   moveAndRenameResourcesFile(outputFolder, 'migration.html', 'migration');
   moveAndRenameResourcesFile(outputFolder, 'case-study.html', 'case-study');
 
   await fixSitemapDomains();
+  await removeExactUrlsFromSitemap(urlsToRemove);
   await moveAndRenameResourcesFile();
 }
 

@@ -10,9 +10,6 @@
     <loc>https://agota.studio/resources</loc>
   </url>
   <url>
-    <loc>https://agota.studio</loc>
-  </url>
-  <url>
     <loc>https://agota.studio/book-a-call</loc>
   </url>
   <url>
@@ -23,6 +20,15 @@
   </url>
   <url>
     <loc>https://agota.studio/case-study/</loc>
+  </url>
+  <url>
+    <loc>https://agota.studio/solutions/design</loc>
+  </url>
+  <url>
+    <loc>https://agota.studio/solutions/development</loc>
+  </url>
+  <url>
+    <loc>https://agota.studio/solutions/development#web-apps</loc>
   </url>
   <url>
     <loc>https://agota.studio/blog/webflow-vs-wordpress</loc>
