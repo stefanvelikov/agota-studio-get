@@ -234,7 +234,6 @@ async function removeExactUrlsFromSitemap(urlsToRemove) {
 
 
 const urlsToRemove = [
-  'https://agota.studio/',
   'https://agota.studio/#solutions',
   'https://agota.studio/solutions',
   'https://agota.studio/solutions/webflow-apps',
