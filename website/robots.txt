@@ -1,8 +1,4 @@
 User-agent: *
-Disallow: /work/?category=All
-Disallow: /work/?category=SaaS
-Disallow: /work/?category=Tech
 Disallow: /style-guide
-Disallow: /*?ref=template
 Allow: /
 Sitemap: https://agota.studio/sitemap.xml
