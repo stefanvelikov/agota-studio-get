@@ -238,7 +238,7 @@ const urlsToRemove = [
   'https://agota.studio/#solutions',
   'https://agota.studio/solutions',
   'https://agota.studio/solutions/webflow-apps',
-  'https://agota.studio/solutions/webflow-apps#web-apps',
+  'https://agota.studio/solutions/development#web-apps',
 ];
 
 // Main Process
