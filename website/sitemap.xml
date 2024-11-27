@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://agota.studio</loc>
+  </url>
+  <url>
     <loc>https://agota.studio/style-guide</loc>
   </url>
   <url>
@@ -8,9 +11,6 @@
   </url>
   <url>
     <loc>https://agota.studio/resources</loc>
-  </url>
-  <url>
-    <loc>https://agota.studio</loc>
   </url>
   <url>
     <loc>https://agota.studio/book-a-call</loc>
@@ -35,6 +35,9 @@
   </url>
   <url>
     <loc>https://agota.studio/blog/webflow-vs-wordpress</loc>
+  </url>
+  <url>
+    <loc>https://agota.studio/blog/webflow-vs-elementor</loc>
   </url>
   <url>
     <loc>https://agota.studio/blog/top-benefits-of-hiring-a-webflow-agency</loc>

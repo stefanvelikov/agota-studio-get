@@ -158,8 +158,18 @@ async function fixSitemapDomains() {
     const sitemapObj = await new xml2js.Parser().parseStringPromise(sitemapData);
 
     // Define arrays for inclusion and exclusion
-    const pathsToEnsureSlash = ['/migration', '/case-study', '/blog'];
-    const pathsToExclude = ['/with/kaufland','/#solutions','/solutions/webflow-apps#web-apps','/solutions','/solutions/webflow-apps'];
+    const pathsToEnsureSlash = [
+      '/migration',
+      '/case-study',
+      '/blog'
+    ];
+    const pathsToExclude = [
+      '/with/kaufland',
+      '/#solutions',
+      '/solutions/webflow-apps#web-apps',
+      '/solutions',
+      '/solutions/webflow-apps'
+    ];
 
     sitemapObj.urlset.url = sitemapObj.urlset.url.filter(urlObj => {
       // Extract the path from the URL
@@ -233,7 +243,66 @@ async function removeExactUrlsFromSitemap(urlsToRemove) {
 }
 
 
+async function addLinksToSitemapAtTop(linksToAdd) {
+  try {
+    const sitemapFilePath = path.join(outputFolder, sitemapFileName);
+    const sitemapData = await fs.readFile(sitemapFilePath, 'utf-8');
+
+    const parser = new xml2js.Parser();
+    const sitemapObj = await parser.parseStringPromise(sitemapData);
+
+    // Ensure the new links are normalized and formatted
+    const normalizedLinksToAdd = linksToAdd.map(link => ({
+      loc: [link.replace(/\/$/, '')], // Remove trailing slash
+    }));
+
+    // Add new links to the top of the array, avoiding duplicates
+    sitemapObj.urlset.url = [
+      ...normalizedLinksToAdd.filter(
+        linkObj => !sitemapObj.urlset.url.some(urlObj => urlObj.loc[0] === linkObj.loc[0])
+      ),
+      ...sitemapObj.urlset.url,
+    ];
+
+    // Build the updated sitemap with proper XML declaration and namespaces
+    const builder = new xml2js.Builder({
+      headless: false, // Ensure the XML declaration is included
+    });
+
+    const namespaces = {
+      $: {
+        xmlns: 'http://www.sitemaps.org/schemas/sitemap/0.9',
+        'xmlns:xhtml': 'http://www.w3.org/1999/xhtml',
+      },
+    };
+
+    const updatedSitemapXml = builder.buildObject({
+      urlset: {
+        ...namespaces,
+        url: sitemapObj.urlset.url,
+      },
+    });
+
+    // Write the updated sitemap to file
+    await fs.writeFile(sitemapFilePath, updatedSitemapXml);
+
+    console.log(`Links added at the top of the sitemap and saved to ${sitemapFilePath}`);
+  } catch (error) {
+    console.error('Error updating sitemap:', error.message);
+  }
+}
+
+// Example usage
+const newLinks = [
+  'https://agota.studio'
+];
+
+
+
+
+
 const urlsToRemove = [
+  'https://agota.studio/',
   'https://agota.studio/#solutions',
   'https://agota.studio/solutions',
   'https://agota.studio/solutions/webflow-apps',
@@ -253,6 +322,7 @@ async function processSitemapAndResources() {
 
   await fixSitemapDomains();
   await removeExactUrlsFromSitemap(urlsToRemove);
+  await addLinksToSitemapAtTop(newLinks);
   await moveAndRenameResourcesFile();
 }
 
