@@ -5,6 +5,7 @@ RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 ErrorDocument 404 /404
+ErrorDocument 403 /404
 Redirect 301 /contact https://www.agota.studio/book-a-call
 Redirect 301 /pricing https://www.agota.studio/book-a-call
 Redirect 301 /with/kaufland https://www.agota.studio/book-a-call
