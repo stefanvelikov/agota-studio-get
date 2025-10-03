@@ -4,25 +4,7 @@
     <loc>https://agota.studio</loc>
   </url>
   <url>
-    <loc>https://agota.studio/style-guide</loc>
-  </url>
-  <url>
     <loc>https://agota.studio/work</loc>
-  </url>
-  <url>
-    <loc>https://agota.studio/resources</loc>
-  </url>
-  <url>
-    <loc>https://agota.studio/book-a-call</loc>
-  </url>
-  <url>
-    <loc>https://agota.studio/blog/</loc>
-  </url>
-  <url>
-    <loc>https://agota.studio/migration/</loc>
-  </url>
-  <url>
-    <loc>https://agota.studio/case-study/</loc>
   </url>
   <url>
     <loc>https://agota.studio/solutions/web-design</loc>
@@ -34,7 +16,22 @@
     <loc>https://agota.studio/solutions/webflow-development#web-apps</loc>
   </url>
   <url>
+    <loc>https://agota.studio/resources</loc>
+  </url>
+  <url>
+    <loc>https://agota.studio/blog/</loc>
+  </url>
+  <url>
+    <loc>https://agota.studio/migration/</loc>
+  </url>
+  <url>
+    <loc>https://agota.studio/case-study/</loc>
+  </url>
+  <url>
     <loc>https://agota.studio/blog/webflow-vs-wordpress</loc>
+  </url>
+  <url>
+    <loc>https://agota.studio/book-a-call</loc>
   </url>
   <url>
     <loc>https://agota.studio/blog/discover-why-your-wordpress-site-is-sluggish</loc>
